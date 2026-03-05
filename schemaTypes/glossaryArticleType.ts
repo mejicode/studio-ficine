@@ -1,24 +1,29 @@
 import { defineField, defineType } from "sanity";
 
-export const glossaryType = defineType({
-    name: 'glossary',
-  title: 'Glossário',
+export const glossaryArticleType = defineType({
+    name: 'glossaryArticle',
+  title: 'Glossário - Artigo',
   type: 'document',
   fields: [
     defineField({
-      name: 'term',
-      title: 'Termo em PT',
+      name: 'author',
+      title: 'Autor',
+      type: 'string',
+    }),
+    defineField({
+      name: 'titlePt',
+      title: 'Título em PT',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'termEng',
-      title: 'Termo em EN',
+      name: 'titleEn',
+      title: 'Título em EN',
       type: 'string',
     }),
      defineField({
-      name: 'termEs',
-      title: 'Termo em ES',
+      name: 'titleEs',
+      title: 'Título em ES',
       type: 'string',
     }),
      defineField({
