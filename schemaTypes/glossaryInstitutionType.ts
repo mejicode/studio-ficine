@@ -22,27 +22,70 @@ export const glossaryInstitutionType = defineType({
     }),
     defineField({
       name: 'titlePt',
-      title: 'Títulos em PT',
+      title: 'Títulos  + Link em PT',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Título',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'titleEn',
-      title: 'Títulos em EN',
+      title: 'Títulos  + Link em EN',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
     }),
-     defineField({
+    defineField({
       name: 'titleEs',
-      title: 'Títulos em ES',
+      title: 'Títulos  + Link em ES',
       type: 'array',
-      of: [{ type: 'string' }],
-    }),
-     defineField({
-      name: 'link',
-      title: 'Link',
-      type: 'string',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Título',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
     }),
 ]
 })
