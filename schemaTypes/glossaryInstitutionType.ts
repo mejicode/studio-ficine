@@ -22,7 +22,7 @@ export const glossaryInstitutionType = defineType({
     }),
     defineField({
       name: 'titlePt',
-      title: 'Títulos  + Link em PT',
+      title: 'Título  + Link em PT',
       type: 'array',
       of: [
         {
@@ -45,7 +45,7 @@ export const glossaryInstitutionType = defineType({
     }),
     defineField({
       name: 'titleEn',
-      title: 'Títulos  + Link em EN',
+      title: 'Título  + Link em EN',
       type: 'array',
       of: [
         {
@@ -67,7 +67,7 @@ export const glossaryInstitutionType = defineType({
     }),
     defineField({
       name: 'titleEs',
-      title: 'Títulos  + Link em ES',
+      title: 'Título  + Link em ES',
       type: 'array',
       of: [
         {
