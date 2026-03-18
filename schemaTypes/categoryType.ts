@@ -7,9 +7,19 @@ export const categoryType = defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Título',
+      title: 'Título em PT',
       type: 'string',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'titleEng',
+      title: 'Título em EN',
+      type: 'string',
+    }),
+    defineField({
+      name: 'titleEs',
+      title: 'Título em ES',
+      type: 'string',
     }),
     defineField({
       name: 'slug',
@@ -23,7 +33,7 @@ export const categoryType = defineType({
     }),
     defineField({
       name: 'description',
-      title: 'Descrição',
+      title: 'Descrição em PT',
       type: 'text',
       rows: 3,
     }),
