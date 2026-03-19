@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export const glossaryInstitutionType = defineType({
   name: 'glossaryInstitution',
@@ -6,27 +6,43 @@ export const glossaryInstitutionType = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'localPt',
-      title: 'Local em PT',
+      name: 'displayMode',
+      title: 'Modo de exibição',
+      type: 'string',
+      initialValue: 'group',
+      options: {
+        list: [
+          {title: 'Grupo', value: 'group'},
+          {title: 'Item único', value: 'single'},
+        ],
+        layout: 'radio',
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'groupTitlePt',
+      title: 'Título do grupo em PT',
       type: 'string',
     }),
-      defineField({
-      name: 'localEn',
-      title: 'Local em EN',
+    defineField({
+      name: 'groupTitleEn',
+      title: 'Título do grupo em EN',
       type: 'string',
     }),
-     defineField({
-      name: 'localEs',
-      title: 'Local em ES',
+    defineField({
+      name: 'groupTitleEs',
+      title: 'Título do grupo em ES',
       type: 'string',
     }),
     defineField({
       name: 'titlePt',
-      title: 'Título  + Link em PT',
+      title: 'Itens em PT',
       type: 'array',
       of: [
         {
           type: 'object',
+          name: 'institutionItemPt',
+          title: 'Item',
           fields: [
             defineField({
               name: 'title',
@@ -36,7 +52,7 @@ export const glossaryInstitutionType = defineType({
             defineField({
               name: 'link',
               title: 'Link',
-              type: 'string',
+              type: 'url',
             }),
           ],
         },
@@ -45,11 +61,13 @@ export const glossaryInstitutionType = defineType({
     }),
     defineField({
       name: 'titleEn',
-      title: 'Título  + Link em EN',
+      title: 'Itens em EN',
       type: 'array',
       of: [
         {
           type: 'object',
+          name: 'institutionItemEn',
+          title: 'Item',
           fields: [
             defineField({
               name: 'title',
@@ -59,7 +77,7 @@ export const glossaryInstitutionType = defineType({
             defineField({
               name: 'link',
               title: 'Link',
-              type: 'string',
+              type: 'url',
             }),
           ],
         },
@@ -67,11 +85,13 @@ export const glossaryInstitutionType = defineType({
     }),
     defineField({
       name: 'titleEs',
-      title: 'Título  + Link em ES',
+      title: 'Itens em ES',
       type: 'array',
       of: [
         {
           type: 'object',
+          name: 'institutionItemEs',
+          title: 'Item',
           fields: [
             defineField({
               name: 'title',
@@ -81,12 +101,24 @@ export const glossaryInstitutionType = defineType({
             defineField({
               name: 'link',
               title: 'Link',
-              type: 'string',
+              type: 'url',
             }),
           ],
         },
       ],
     }),
-]
+  ],
+  preview: {
+    select: {
+      displayMode: 'displayMode',
+      groupTitlePt: 'groupTitlePt',
+      firstItem: 'titlePt.0.title',
+    },
+    prepare({displayMode, groupTitlePt, firstItem}) {
+      return {
+        title: groupTitlePt || firstItem || 'Instituição ou coletivo',
+        subtitle: displayMode === 'single' ? 'Item único' : 'Grupo',
+      }
+    },
+  },
 })
-  
