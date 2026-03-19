@@ -1,7 +1,7 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export const glossaryArticleType = defineType({
-    name: 'glossaryArticle',
+  name: 'glossaryArticle',
   title: 'Glossário - Artigo',
   type: 'document',
   fields: [
@@ -9,6 +9,7 @@ export const glossaryArticleType = defineType({
       name: 'author',
       title: 'Autor',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'titlePt',
@@ -21,16 +22,21 @@ export const glossaryArticleType = defineType({
       title: 'Título em EN',
       type: 'string',
     }),
-     defineField({
+    defineField({
       name: 'titleEs',
       title: 'Título em ES',
       type: 'string',
     }),
-     defineField({
+    defineField({
       name: 'link',
       title: 'Link',
-      type: 'string',
+      type: 'url',
     }),
-]
+  ],
+  preview: {
+    select: {
+      title: 'titlePt',
+      subtitle: 'author',
+    },
+  },
 })
-  
