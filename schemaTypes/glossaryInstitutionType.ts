@@ -35,67 +35,28 @@ export const glossaryInstitutionType = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'titlePt',
-      title: 'Itens em PT',
+      name: 'items',
+      title: 'Itens',
       type: 'array',
       of: [
         {
           type: 'object',
-          name: 'institutionItemPt',
+          name: 'institutionItem',
           title: 'Item',
           fields: [
             defineField({
-              name: 'title',
-              title: 'Título',
+              name: 'titlePt',
+              title: 'Título em PT',
               type: 'string',
             }),
             defineField({
-              name: 'link',
-              title: 'Link',
-              type: 'url',
-            }),
-          ],
-        },
-      ],
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'titleEn',
-      title: 'Itens em EN',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          name: 'institutionItemEn',
-          title: 'Item',
-          fields: [
-            defineField({
-              name: 'title',
-              title: 'Title',
+              name: 'titleEn',
+              title: 'Title in EN',
               type: 'string',
             }),
             defineField({
-              name: 'link',
-              title: 'Link',
-              type: 'url',
-            }),
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: 'titleEs',
-      title: 'Itens em ES',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          name: 'institutionItemEs',
-          title: 'Item',
-          fields: [
-            defineField({
-              name: 'title',
-              title: 'Título',
+              name: 'titleEs',
+              title: 'Título en ES',
               type: 'string',
             }),
             defineField({
@@ -112,7 +73,7 @@ export const glossaryInstitutionType = defineType({
     select: {
       displayMode: 'displayMode',
       groupTitlePt: 'groupTitlePt',
-      firstItem: 'titlePt.0.title',
+      firstItem: 'items.0.titlePt',
     },
     prepare({displayMode, groupTitlePt, firstItem}) {
       return {
