@@ -6,6 +6,14 @@ export const postType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'checkbox',
+      title: 'Deseja compartilhar nas noticias?',
+      type: 'boolean',
+      options: {
+        layout: 'checkbox'
+      },
+    }),
+    defineField({
       name: 'title',
       title: 'Título em PT',
       type: 'string',
