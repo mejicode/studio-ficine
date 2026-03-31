@@ -43,6 +43,11 @@ export const newsType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'externalLink',
+      title: 'Link Externo',
+      type: 'url',
+    }),
+    defineField({
       name: 'categories',
       title: 'Categorias',
       type: 'array',
