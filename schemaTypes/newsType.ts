@@ -67,11 +67,25 @@ export const newsType = defineType({
     defineField({
       name: 'image',
       type: 'image',
+      fields: [
+        defineField({
+          name: 'credit',
+          title: 'Créditos da imagem',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
       name: 'avatar',
       title: 'Avatar',
       type: 'image',
+      fields: [
+        defineField({
+          name: 'credit',
+          title: 'Créditos da imagem',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
       name: 'author',

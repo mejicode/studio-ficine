@@ -48,6 +48,13 @@ export const teamType = defineType({
       name: 'image',
       type: 'image',
       options: {hotspot: true},
+      fields: [
+        defineField({
+          name: 'credit',
+          title: 'Créditos da imagem',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
       name: 'category',

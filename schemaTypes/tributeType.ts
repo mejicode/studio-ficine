@@ -48,6 +48,13 @@ export const tributeType = defineType({
       title: 'Imagem do Hero',
       type: 'image',
       options: {hotspot: true},
+      fields: [
+        defineField({
+          name: 'credit',
+          title: 'Créditos da imagem',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
       name: 'body',
@@ -79,6 +86,11 @@ export const tributeType = defineType({
           type: 'image',
           options: {hotspot: true},
           fields: [
+            defineField({
+              name: 'credit',
+              title: 'Créditos da imagem',
+              type: 'string',
+            }),
             defineField({
               name: 'alt',
               title: 'Alt',
