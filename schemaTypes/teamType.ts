@@ -17,6 +17,11 @@ export const teamType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'username',
+      title: 'Username',
+      type: 'string',
+    }),
+    defineField({
       name: 'link',
       title: 'Link',
       type: 'string',
