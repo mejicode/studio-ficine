@@ -15,5 +15,19 @@ export const podcast = {
     { name: 'coverImage', title: 'Capa do Episódio', type: 'image' },
     { name: 'publishedAt', title: 'Data de Publicação', type: 'datetime' },
     { name: 'duration', title: 'Duração (em segundos)', type: 'number' },
-  ]
+    {
+    name: 'category',
+    title: 'Categoria (iTunes)',
+    type: 'string',
+    options: {
+        list: ['Society & Culture', 'Education', 'Arts', 'History'], // Categorias que o Spotify entende
+    }
+    },
+    {
+    name: 'explicit',
+    title: 'Conteúdo Explícito?',
+    type: 'boolean',
+    initialValue: false
+    },  
+] 
 }
