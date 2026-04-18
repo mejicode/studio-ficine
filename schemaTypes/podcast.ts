@@ -1,3 +1,5 @@
+import { defineField } from "sanity";
+
 // schemas/podcast.ts
 export const podcast = {
   name: 'podcast',
@@ -6,6 +8,16 @@ export const podcast = {
   fields: [
     { name: 'title', title: 'Título do Episódio', type: 'string' },
     { name: 'description', title: 'Resumo/Notas', type: 'text' },
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (rule) => rule.required(),
+    }),
     { 
       name: 'audioFile', 
       title: 'Arquivo de Áudio', 
