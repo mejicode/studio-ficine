@@ -6,5 +6,6 @@ import { glossaryArticleType } from './glossaryArticleType'
 import { glossaryInstitutionType } from './glossaryInstitutionType' 
 import { glossaryThesesType } from './glossaryThesesType'
 import {newsType} from './newsType'
+import {subscriber} from './subscriber'
 
-export const schemaTypes = [postType, newsType, categoryType, teamType, tributeType, glossaryArticleType, glossaryInstitutionType, glossaryThesesType]
+export const schemaTypes = [postType, newsType, categoryType, teamType, tributeType, glossaryArticleType, glossaryInstitutionType, glossaryThesesType, subscriber]

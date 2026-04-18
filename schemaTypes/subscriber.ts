@@ -1,4 +1,4 @@
-export default {
+export const subscriber = {
   name: 'subscriber',
   title: 'Assinantes Newsletter',
   type: 'document',
