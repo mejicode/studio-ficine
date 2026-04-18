@@ -1,7 +1,7 @@
 // schemas/podcast.ts
 export const podcast = {
   name: 'podcast',
-  title: 'Episódios',
+  title: 'Episódios do Podcast',
   type: 'document',
   fields: [
     { name: 'title', title: 'Título do Episódio', type: 'string' },
