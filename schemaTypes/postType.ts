@@ -9,6 +9,7 @@ export const postType = defineType({
       name: 'checkbox',
       title: 'Deseja compartilhar nas noticias?',
       type: 'boolean',
+      initialValue: false,
       options: {
         layout: 'checkbox'
       },
