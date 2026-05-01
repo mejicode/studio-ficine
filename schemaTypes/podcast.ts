@@ -22,7 +22,6 @@ export const podcast = {
       title: 'Título em ES',
       type: 'string',
     }),
-    {name: 'description', title: 'Resumo/Notas', type: 'text'},
     defineField({
       name: 'slug',
       title: 'Slug',
@@ -73,20 +72,5 @@ export const podcast = {
     },
     {name: 'coverImage', title: 'Capa do Episódio', type: 'image'},
     {name: 'publishedAt', title: 'Data de Publicação', type: 'datetime'},
-    {name: 'duration', title: 'Duração (em segundos)', type: 'number'},
-    {
-      name: 'category',
-      title: 'Categoria (iTunes)',
-      type: 'string',
-      options: {
-        list: ['Society & Culture', 'Education', 'Arts', 'History'], // Categorias que o Spotify entende
-      },
-    },
-    {
-      name: 'explicit',
-      title: 'Conteúdo Explícito?',
-      type: 'boolean',
-      initialValue: false,
-    },
   ],
 }
