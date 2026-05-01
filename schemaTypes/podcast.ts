@@ -1,4 +1,4 @@
-import { defineField } from "sanity";
+import {defineField} from 'sanity'
 
 // schemas/podcast.ts
 export const podcast = {
@@ -6,8 +6,23 @@ export const podcast = {
   title: 'Episódios do Podcast',
   type: 'document',
   fields: [
-    { name: 'title', title: 'Título do Episódio', type: 'string' },
-    { name: 'description', title: 'Resumo/Notas', type: 'text' },
+    defineField({
+      name: 'title',
+      title: 'Título em PT',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'titleEng',
+      title: 'Título em EN',
+      type: 'string',
+    }),
+    defineField({
+      name: 'titleEs',
+      title: 'Título em ES',
+      type: 'string',
+    }),
+    {name: 'description', title: 'Resumo/Notas', type: 'text'},
     defineField({
       name: 'slug',
       title: 'Slug',
@@ -18,28 +33,60 @@ export const podcast = {
       },
       validation: (rule) => rule.required(),
     }),
-    { 
-      name: 'audioFile', 
-      title: 'Arquivo de Áudio', 
+    {
+      name: 'audioFile',
+      title: 'Arquivo de Áudio',
       type: 'file',
-      options: { accept: 'audio/*' } 
+      description: 'Use este campo para subir o arquivo de áudio diretamente no Sanity.',
+      options: {accept: 'audio/*'},
     },
-    { name: 'coverImage', title: 'Capa do Episódio', type: 'image' },
-    { name: 'publishedAt', title: 'Data de Publicação', type: 'datetime' },
-    { name: 'duration', title: 'Duração (em segundos)', type: 'number' },
+    defineField({
+      name: 'spotifyEmbedCode',
+      title: 'Código de embed do Spotify',
+      type: 'text',
+      description:
+        'Cole aqui o iframe completo gerado pelo Spotify. Se este campo estiver preenchido, o site exibirá o player do Spotify diretamente na página.',
+      rows: 6,
+    }),
     {
-    name: 'category',
-    title: 'Categoria (iTunes)',
-    type: 'string',
-    options: {
+      name: 'author',
+      title: 'Autoria / Apresentação',
+      type: 'string',
+    },
+    {
+      name: 'body',
+      title: 'Transcrição / Conteúdo em PT',
+      type: 'array',
+      of: [{type: 'block'}, {type: 'image'}],
+    },
+    {
+      name: 'bodyEng',
+      title: 'Transcrição / Conteúdo em EN',
+      type: 'array',
+      of: [{type: 'block'}, {type: 'image'}],
+    },
+    {
+      name: 'bodyEs',
+      title: 'Transcrição / Conteúdo em ES',
+      type: 'array',
+      of: [{type: 'block'}, {type: 'image'}],
+    },
+    {name: 'coverImage', title: 'Capa do Episódio', type: 'image'},
+    {name: 'publishedAt', title: 'Data de Publicação', type: 'datetime'},
+    {name: 'duration', title: 'Duração (em segundos)', type: 'number'},
+    {
+      name: 'category',
+      title: 'Categoria (iTunes)',
+      type: 'string',
+      options: {
         list: ['Society & Culture', 'Education', 'Arts', 'History'], // Categorias que o Spotify entende
-    }
+      },
     },
     {
-    name: 'explicit',
-    title: 'Conteúdo Explícito?',
-    type: 'boolean',
-    initialValue: false
-    },  
-] 
+      name: 'explicit',
+      title: 'Conteúdo Explícito?',
+      type: 'boolean',
+      initialValue: false,
+    },
+  ],
 }
