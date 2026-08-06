@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {flexibleContent} from './flexibleContent'
 
 export const postType = defineType({
   name: 'post',
@@ -11,7 +12,7 @@ export const postType = defineType({
       type: 'boolean',
       initialValue: false,
       options: {
-        layout: 'checkbox'
+        layout: 'checkbox',
       },
     }),
     defineField({
@@ -25,7 +26,7 @@ export const postType = defineType({
       title: 'Título em EN',
       type: 'string',
     }),
-      defineField({
+    defineField({
       name: 'titleEs',
       title: 'Título em ES',
       type: 'string',
@@ -100,19 +101,19 @@ export const postType = defineType({
       name: 'body',
       title: 'Corpo do Post em PT',
       type: 'array',
-      of: [{type: 'block'}],
-  }),
+      of: flexibleContent,
+    }),
     defineField({
       name: 'bodyEng',
       title: 'Corpo do Post em EN',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
     }),
-     defineField({
+    defineField({
       name: 'bodyEs',
       title: 'Corpo do Post em ES',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
     }),
   ],
 })

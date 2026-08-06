@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {flexibleContent} from './flexibleContent'
 
 export const tributeType = defineType({
   name: 'tribute',
@@ -60,20 +61,20 @@ export const tributeType = defineType({
       name: 'body',
       title: 'Texto principal em PT',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'bodyEng',
       title: 'Texto principal em EN',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
     }),
     defineField({
       name: 'bodyEs',
       title: 'Texto principal em ES',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
     }),
     defineField({
       name: 'middleImages',
@@ -88,13 +89,16 @@ export const tributeType = defineType({
           fields: [
             defineField({
               name: 'credit',
-              title: 'Créditos da imagem',
+              title: 'Legenda da imagem',
               type: 'string',
+              description: 'Texto visível abaixo da imagem.',
             }),
             defineField({
               name: 'alt',
-              title: 'Alt',
+              title: 'Texto alternativo',
               type: 'string',
+              description: 'Descreva a imagem para leitores de ecrã.',
+              validation: (rule) => rule.required(),
             }),
           ],
         }),

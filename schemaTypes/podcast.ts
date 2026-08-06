@@ -1,4 +1,5 @@
 import {defineField} from 'sanity'
+import {flexibleContent} from './flexibleContent'
 
 // schemas/podcast.ts
 export const podcast = {
@@ -56,19 +57,19 @@ export const podcast = {
       name: 'body',
       title: 'Transcrição / Conteúdo em PT',
       type: 'array',
-      of: [{type: 'block'}, {type: 'image'}],
+      of: flexibleContent,
     },
     {
       name: 'bodyEng',
       title: 'Transcrição / Conteúdo em EN',
       type: 'array',
-      of: [{type: 'block'}, {type: 'image'}],
+      of: flexibleContent,
     },
     {
       name: 'bodyEs',
       title: 'Transcrição / Conteúdo em ES',
       type: 'array',
-      of: [{type: 'block'}, {type: 'image'}],
+      of: flexibleContent,
     },
     {name: 'coverImage', title: 'Capa do Episódio', type: 'image'},
     {name: 'publishedAt', title: 'Data de Publicação', type: 'datetime'},

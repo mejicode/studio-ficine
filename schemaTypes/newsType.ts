@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {flexibleContent} from './flexibleContent'
 
 export const newsType = defineType({
   name: 'news',
@@ -96,19 +97,19 @@ export const newsType = defineType({
       name: 'body',
       title: 'Corpo do Post em PT',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
   }),
     defineField({
       name: 'bodyEng',
       title: 'Corpo do Post em EN',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
     }),
      defineField({
       name: 'bodyEs',
       title: 'Corpo do Post em ES',
       type: 'array',
-      of: [{type: 'block'}],
+      of: flexibleContent,
     }),
   ],
 })
